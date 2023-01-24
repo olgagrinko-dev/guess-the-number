@@ -12,5 +12,22 @@
 let num = Math.floor(Math.random()*100);
 let prompt = prompt(`введите число от 0 до 100`);
 
-// если prompt === num вы угадали
-// если prompt < num
+function generatedNumber(num_, prompt_) {
+    let startindex = 0;
+    let endindex = array_.length - 1;
+    for (let i = startindex; i < endindex; i++) {
+        let midl = Math.floor((startindex + endindex) / 2);
+        if (num_ === prompt_) {
+            console.log(`Вы угадали, поздравляем!`);
+            break;
+        } else if (num_ > prompt_) {
+            startindex = midl;
+            console.log(`Слишком много, попробуйте еще раз. '${midl}'`);
+        } else if (num_ < prompt_) {
+            endindex = midl;
+            console.log(`Слишком мало, попробуйте еще раз. '${midl}'`);
+        }
+    }
+}
+
+generatedNumber(num, prompt);
