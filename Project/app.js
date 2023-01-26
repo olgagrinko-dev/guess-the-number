@@ -9,26 +9,24 @@
 // Целые числа; Переменные; Ввод / вывод данных; Условный оператор; Цикл; Бесконечный цикл;
 // Операторы break, continue; Работа с модулем random для генерации случайных чисел; Функции.
 
-const num = Math.floor(Math.random() * 100);
-const prompt = +prompt(`введите число от 0 до 100`);
+let randomNum = Math.floor(Math.random() * 100) + 1;
+let num = +prompt(`введите число от 0 до 100`);
 
-function makeRangeIterator(num_, prompt_) {
-    let start = 0;
-    let end = 100;
-    for (let i = start; i < end.length; i += step) {
-        let midl = Math.floor((start + end) / 2);
-        if (num_ === prompt_) {
-            alert(`Вы угадали, поздравляем!`);
+function makeRangeIterator(randomNum_, num_) {
+
+    while (true) {
+        //     let midl = Math.floor((start + end) / 2);
+        if (randomNum_ === num_) {
+            alert(`Вы угадали, поздравляем!`)
             break;
-        } else if (num_ > prompt_) {
-            start = midl;
-            alert(`Слишком много, попробуйте еще раз. '${midl}'`);
-        } else if (num_ < prompt_) {
-            end = midl;
-            alert(`Слишком мало, попробуйте еще раз. '${midl}'`);
+        } else if (randomNum_ > num_) {
+            alert(`Вы ввели число больше чем нужно.`);
+        } else if (randomNum_ < num_) {
+            alert(`Вы ввели число меньше чем нужно.`);
         }
     }
 }
 
-let rand = makeRangeIterator(num, prompt);
+let number = makeRangeIterator(randomNum, num);
+console.log(randomNum);
 
