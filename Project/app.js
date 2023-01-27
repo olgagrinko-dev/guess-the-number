@@ -13,20 +13,22 @@ let randomNum = Math.floor(Math.random() * 100) + 1;
 let num = +prompt(`введите число от 0 до 100`);
 
 function makeRangeIterator(randomNum_, num_) {
-
-    while (true) {
-        //     let midl = Math.floor((start + end) / 2);
-        if (randomNum_ === num_) {
+    let start = 0;
+    let end = 100;
+    for (let i = start; i < end; i++) {
+        let midl = Math.floor((start + end) / 2);
+        if (num_ === midl) {
             alert(`Вы угадали, поздравляем!`)
             break;
-        } else if (randomNum_ > num_) {
+        } else if (num_ > midl) {
             alert(`Вы ввели число больше чем нужно.`);
-        } else if (randomNum_ < num_) {
+        } else if (num_ < midl) {
             alert(`Вы ввели число меньше чем нужно.`);
         }
     }
 }
 
-let number = makeRangeIterator(randomNum, num);
+makeRangeIterator(randomNum, num);
 console.log(randomNum);
+
 
