@@ -10,25 +10,29 @@
 // Операторы break, continue; Работа с модулем random для генерации случайных чисел; Функции.
 
 let randomNum = Math.floor(Math.random() * 100) + 1;
-let num = +prompt(`введите число от 0 до 100`);
 
-function makeRangeIterator(randomNum_, num_) {
+function makeRangeIterator(randomNum_) {
     let start = 0;
     let end = 100;
+
     for (let i = start; i < end; i++) {
-        let midl = Math.floor((start + end) / 2);
-        if (num_ === midl) {
-            alert(`Вы угадали, поздравляем!`)
-            break;
-        } else if (num_ > midl) {
-            alert(`Вы ввели число больше чем нужно.`);
-        } else if (num_ < midl) {
-            alert(`Вы ввели число меньше чем нужно.`);
+        let middle = +prompt(`введите число от ${start} до ${end}`);
+        if (middle > start && middle < end) {
+            if (randomNum_ == middle) {
+                alert(`Вы угадали, поздравляем! ${middle}`);
+                break;
+            } else if (randomNum_ > middle) {
+                start = middle;
+                alert(`Вы ввели число меньше чем нужно ${middle}`);
+            } else if (randomNum_ < middle) {
+                end = middle;
+                alert(`Вы ввели число больше чем нужно ${middle}`);
+            }
         }
     }
 }
 
-makeRangeIterator(randomNum, num);
-console.log(randomNum);
+makeRangeIterator(randomNum);
+
 
 
